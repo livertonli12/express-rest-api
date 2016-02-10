@@ -1,4 +1,5 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+var port = process.env.PORT || 8000
 
 var mongoose    = require('./config/mongoose'),
     express     = require('./config/express');
@@ -10,8 +11,8 @@ var mongoose    = require('./config/mongoose'),
 var db = mongoose();
 var app = express();
 
-app.listen(3000);
+app.listen(port, function(){
+    console.log('Servidor rodando na porta: ' + port);
+});
 
 module.exports = app;
-
-console.log('Servidor rodando');
